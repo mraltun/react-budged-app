@@ -1,4 +1,5 @@
 import React from "react";
+import BudgetCard from "./components/BudgetCard";
 import { Button, Container, Stack } from "react-bootstrap";
 
 const App = () => {
@@ -16,7 +17,9 @@ const App = () => {
           gap: "1rem",
           alignItems: "flex-start",
         }}
-      ></div>
+      >
+        <BudgetCard></BudgetCard>
+      </div>
     </Container>
   );
 };
