@@ -42,6 +42,7 @@ const App = () => {
         >
           {budgets.map((budget) => {
             // Get all expenses and add all amount of expenses together
+
             const amount = getBudgetExpenses(budget.id).reduce(
               (total, expense) => total + expense.amount,
               0
@@ -53,7 +54,7 @@ const App = () => {
                 amount={amount}
                 max={budget.max}
                 onAddExpenseClick={() => openAddExpenseModal(budget.id)}
-                onViewExpenseClick={() =>
+                onViewExpensesClick={() =>
                   setViewExpensesModalBudgetId(budget.id)
                 }
               />
@@ -61,7 +62,7 @@ const App = () => {
           })}
           <UncategorizedBudgetCard
             onAddExpenseClick={openAddExpenseModal}
-            onViewExpenseClick={() =>
+            onViewExpensesClick={() =>
               setViewExpensesModalBudgetId(UNCATEGORIZED_BUDGET_ID)
             }
           />
