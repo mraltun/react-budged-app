@@ -17,6 +17,7 @@ const BudgetCard = ({
   gray,
   onAddExpenseClick,
   hideButtons,
+  onViewExpensesClick,
 }) => {
   const classNames = [];
   // Red applies first to override gray
@@ -58,7 +59,11 @@ const BudgetCard = ({
             >
               Add Expense
             </Button>
-            <Button variant='outline-secondary' className='ms-auto'>
+            <Button
+              onClick={onViewExpensesClick}
+              variant='outline-secondary'
+              className='ms-auto'
+            >
               View Expense
             </Button>
           </Stack>
