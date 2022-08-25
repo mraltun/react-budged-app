@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import BudgetCard from "./components/BudgetCard";
-import { Button, Container, Stack } from "react-bootstrap";
 import AddBudgetModal from "./components/AddBudgetModal";
+import { Button, Container, Stack } from "react-bootstrap";
 
 const App = () => {
+  const [showAddBudgetModal, setShowAddBudgetModal] = useState();
+
   return (
     <>
       <Container className='my-4'>
         <Stack direction='horizontal' gap='2' className='mb-4'>
           <h1 className='me-auto'>Budgets</h1>
-          <Button variant='primary'>Add Budget</Button>
+          <Button variant='primary' onClick={() => setShowAddBudgetModal(true)}>
+            Add Budget
+          </Button>
           <Button variant='outline-primary'>Add Expense</Button>
         </Stack>
         <div
@@ -23,7 +27,10 @@ const App = () => {
           <BudgetCard name='Entertainment' amount={100} max={1000}></BudgetCard>
         </div>
       </Container>
-      <AddBudgetModal show />
+      <AddBudgetModal
+        show={showAddBudgetModal}
+        handleClose={() => setShowAddBudgetModal(false)}
+      />
     </>
   );
 };
